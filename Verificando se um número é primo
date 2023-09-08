@@ -1,0 +1,40 @@
+Console.WriteLine("### Verificando se um número é primo ###\n");
+
+
+
+ while (true)
+        {
+            Console.WriteLine("Informe um número até 99998 (99999 sai)");
+            var numero = Int32.Parse(Console.ReadLine());
+
+            if (numero == 99999)
+                break;
+
+            if (numero < 2 || numero > 99998)
+            {
+                Console.WriteLine("Número menor que 2 e maior que 1000 não vale");
+
+
+
+            }
+            else
+            {
+                var resultado = VerificaNumeroPrimo(numero);
+                Console.WriteLine("O número {0} {1} primo.\\n", numero, resultado ? "É" : "NÃO ");
+
+            }
+        }
+
+        bool VerificaNumeroPrimo(int numero)
+        {
+            bool ePrimo = true;
+            for (int divisor = 2; divisor <= Math.Sqrt(numero); divisor++)
+            {
+                if (numero % divisor == 0)
+                {
+                    ePrimo = false;
+                    break;
+                }
+            }
+            return ePrimo;
+        }
