@@ -1,0 +1,39 @@
+ using System;
+
+namespace CalculadoraJurosCompostos
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Calculadora de Juros Compostos");
+
+            // Solicitar entrada do usuário para o valor principal, taxa de juros e período.
+            Console.Write("Informe o valor principal: ");
+            double principal = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Informe a taxa de juros anual (em decimal): ");
+            double taxaJuros = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Informe o período em anos: ");
+            int periodoAnos = Convert.ToInt32(Console.ReadLine());
+
+            // Calcular o montante com juros compostos.
+            double montante = CalcularMontanteJurosCompostos(principal, taxaJuros, periodoAnos);
+
+            // Exibir o resultado.
+            Console.WriteLine($"Montante após {periodoAnos} anos: R${montante:F2}");
+        }
+
+        static double CalcularMontanteJurosCompostos(double principal, double taxaJuros, int periodoAnos)
+        {
+            // Fórmula dos juros compostos: M = P * (1 + r/n)^(nt)
+            int numeroDeVezesCapitalizado = 1; // No caso de capitalização anual
+            double taxaDeJurosPorPeriodo = taxaJuros / numeroDeVezesCapitalizado;
+            int numeroTotalDePeriodos = numeroDeVezesCapitalizado * periodoAnos;
+
+            double montante = principal * Math.Pow(1 + taxaDeJurosPorPeriodo, numeroTotalDePeriodos);
+            return montante;
+        }
+    }
+}
