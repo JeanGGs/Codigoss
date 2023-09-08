@@ -1,0 +1,43 @@
+Console.WriteLine("CALCULADORA SIMPLES");
+            Console.WriteLine("---------------------");
+            Console.WriteLine("Digite Uma das operações abaixo (Adição(+) Subtração(-) Multiplicação(*) Divisão(/)");
+            char operacao = Console.ReadKey().KeyChar;
+
+            Console.WriteLine("Digite Seu Primeiro Numero: ");
+            double numero1 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine();
+
+            Console.WriteLine("Digite Seu Segundo Numero: ");
+            double numero2 = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine();
+
+            double resultado = 0.0;
+            switch (operacao)
+            {
+                case '+':
+                    resultado = numero1 + numero2;
+            break;
+                case '-':
+                    resultado = numero1 - numero2;
+                    break;
+                case '*':
+                    break;
+                case '/':
+                    if (numero2 != 0)
+                    {
+                        resultado = numero2 / numero1;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Não Foi Possivel Dividir Por zero");
+                        return;
+                    }
+                    break;
+                default:
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Não Foi Possivel Concluir Sua Operação");
+                    return;
+            }
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"O Resultado Foi {resultado}");
