@@ -1,0 +1,14 @@
+	int NumeroDigitado;
+
+					Console.WriteLine("Digite um Numero");
+          int numero = Convert.ToInt32(Console.ReadLine()); 
+                                               // ReadLine ele esperar você digita alguma coisa
+
+            if (numero % 2 == 0 )
+            {
+                Console.WriteLine("Seu Nomero é Par");
+            }
+            else
+            {
+                Console.WriteLine("Seu Numero e impar");
+            }
